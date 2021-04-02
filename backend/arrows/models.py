@@ -13,7 +13,7 @@ class ArrowModel(models.Model):
     venis_length = models.CharField(blank=True, null=True, max_length=100)
     venis_color = models.CharField(blank=True, null=True, max_length=100)
     point_type = models.CharField(blank=True, null=True, max_length=100)
-    point_weight = models.CharField(blank=True, null=True, max_length=100)
+    point_weight = models.IntegerField(blank=True, null=True)
     insert_type = models.CharField(blank=True, null=True, max_length=100)
     nock_type = models.CharField(blank=True, null=True, max_length=100)
     nock_color = models.CharField(blank=True, null=True, max_length=100)
