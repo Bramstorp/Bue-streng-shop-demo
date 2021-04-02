@@ -7,7 +7,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile.dev
     volumes:
-      - ./app/:/usr/src/backend/
+      - ./app/:/usr/src/app/
     env_file:
       - ./.env.dev
     ports:
@@ -35,6 +35,5 @@ services:
       - POSTGRES_USER=bue_strenge_gemmer
       - POSTGRES_PASSWORD=bue_strenge_gemmer
       - POSTGRES_DB=bue_strenge_gemmer_dev
-
 volumes:
   postgres_data:
