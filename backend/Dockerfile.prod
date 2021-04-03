@@ -15,3 +15,5 @@ RUN pip install -r backend/requirements.txt
 
 ADD ./ /app/
 ADD ./backend /app/backend 
+
+ENTRYPOINT ["/app/backend/wsgi-entrypoint.sh"]
