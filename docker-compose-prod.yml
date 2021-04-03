@@ -1,26 +1,26 @@
 version: '3.7'
 
 services:
-  nginx:
+  nginx: 
     restart: unless-stopped
     container_name: nginx_prod
     build:
-      context: ./nginx
-      dockerfile: Dockerfile.prod
+      context: .
+      dockerfile: ./nginx/Dockerfile.prod
     ports:
       - 80:80
-      - 443:433
+      - 443:443
     volumes:
       - static_volume:/app/backend/backend/django_static
-      - ./docker/nginx/production:/etc/nginx/nginx.conf
-    depends_on:
-      - backend
+      - ./nginx/production:/etc/nginx/nginx.conf
+    depends_on: 
+      - backend  
   backend:
     restart: unless-stopped
     container_name: backend_prod
     build:
-      context: ./backend
-      dockerfile: Dockerfile.prod
+      context: .
+      dockerfile: ./backend/Dockerfile.prod
     entrypoint: /app/backend/wsgi-entrypoint.sh
     volumes:
       - static_volume:/app/backend/backend/django_static
@@ -28,17 +28,17 @@ services:
       - 8000
     env_file:
       - ./.env.prod
-    depends_on:
+    depends_on: 
       - db
   db:
-    container_name: postgresql_bue_prod
+    container_name: postgresql_dev
     image: postgres:12.0-alpine
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=bue_strenge_gemmer
-      - POSTGRES_PASSWORD=bue_strenge_gemmer
-      - POSTGRES_DB=bue_strenge_gemmer_prod
+      - POSTGRES_USER=hello_django
+      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_DB=hello_django_prod
 
 volumes:
   postgres_data:
