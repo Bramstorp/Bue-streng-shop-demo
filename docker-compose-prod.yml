@@ -11,8 +11,8 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - static_volume:/app/backend/backend/django_static
-      - ./nginx/production:/etc/nginx/nginx.conf
+      - static_volume:/app/backend/base/django_static
+      - ./nginx:/etc/nginx/default.conf
     depends_on: 
       - backend  
   backend:
@@ -23,7 +23,7 @@ services:
       dockerfile: ./backend/Dockerfile.prod
     entrypoint: /app/backend/wsgi-entrypoint.sh
     volumes:
-      - static_volume:/app/backend/backend/django_static
+      - static_volume:/app/backend/base/django_static
     expose:
       - 8000
     env_file:
