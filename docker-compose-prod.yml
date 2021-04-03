@@ -21,7 +21,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.prod
-    command: gunicorn backend.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn backend.wsgi:application --bind 0.0.0.0:8000 & celery worker --app=arrows.tasks
     volumes:
       - static_volume:/app/backend/backend/django_static
     expose:
@@ -36,9 +36,14 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=hello_django
-      - POSTGRES_PASSWORD=hello_django
-      - POSTGRES_DB=hello_django_prod
+      - POSTGRES_USER=bue_strenge_gemmer
+      - POSTGRES_PASSWORD=bue_strenge_gemmer
+      - POSTGRES_DB=bue_strenge_gemmer_prod
+  redis:
+    image: redis:latest
+    container_name: redis_dev
+    ports:
+      - "6379:6379"
 
 volumes:
   postgres_data:
