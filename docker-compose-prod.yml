@@ -19,8 +19,9 @@ services:
     restart: unless-stopped
     container_name: backend_bue_prod
     build:
-      context: .
-      dockerfile: ./backend/Dockerfile.prod
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    command: gunicorn backend.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - static_volume:/app/backend/base/django_static
     expose:
