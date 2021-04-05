@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Layout = (props) => (
   <div>
     <Navbar />
-    {props.children}
+    <div className="container">{props.children}</div>
   </div>
 );
 
