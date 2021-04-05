@@ -9,7 +9,7 @@ const Navbar = () => {
         </a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="/">
                 Hjem
               </a>
