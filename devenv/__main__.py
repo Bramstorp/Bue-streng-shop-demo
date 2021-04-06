@@ -1,6 +1,7 @@
 import sys
 from .docker import docker
 from .django import django
+from .postgressql import postgressql
 
 
 def main():
@@ -15,6 +16,8 @@ def main():
             print("pls use dev or prod for env")
     elif input_path == "django":
         django(sys.argv[2])
+    elif input_path == "psql":
+        postgressql()
     else:
         print("fejl 40 dummert")
 
