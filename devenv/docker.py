@@ -4,10 +4,10 @@ import subprocess
 def docker_dev(self):
     if self == "start":
         subprocess.run(
-            ["sudo", "docker-compose", "-f", "docker-compose-dev.yml", "up", "-d", "--build"])
+            ["docker-compose", "-f", "docker-compose-dev.yml", "up", "-d", "--build"])
     elif self == "stop":
         subprocess.run(
-            ["sudo", "docker-compose", "-f", "docker-compose-dev.yml", "down", "-v"])
+            ["docker-compose", "-f", "docker-compose-dev.yml", "down", "-v"])
     else:
         print("NEJ NIKO DET IKKE EN KOMMAND")
 
@@ -15,10 +15,10 @@ def docker_dev(self):
 def docker_prod(self):
     if self == "start":
         subprocess.run(
-            ["sudo", "docker-compose", "-f", "docker-compose-prod.yml", "up", "-d", "--build"])
+            ["docker-compose", "-f", "docker-compose-prod.yml", "up", "-d", "--build"])
     elif self == "stop":
         subprocess.run(
-            ["sudo", "docker-compose", "-f", "docker-compose-prod.yml", "down", "-v"])
+            ["docker-compose", "-f", "docker-compose-prod.yml", "down", "-v"])
     else:
         print("NEJ NIKO DET IKKE EN KOMMAND")
 

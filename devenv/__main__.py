@@ -1,5 +1,6 @@
 import sys
 from .docker import docker
+from .django import django
 
 
 def main():
@@ -12,8 +13,11 @@ def main():
             docker(env, sys.argv[3])
         else:
             print("pls use dev or prod for env")
+    elif input_path == "django":
+        django(sys.argv[2])
     else:
         print("fejl 40 dummert")
+
 
 if __name__ == '__main__':
     main()
