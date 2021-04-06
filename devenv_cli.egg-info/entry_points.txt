@@ -1,0 +1,3 @@
+[console_scripts]
+devenv = devenv.__main__:main
+

@@ -1,0 +1,9 @@
+README.md
+setup.py
+devenv/__init__.py
+devenv/__main__.py
+devenv_cli.egg-info/PKG-INFO
+devenv_cli.egg-info/SOURCES.txt
+devenv_cli.egg-info/dependency_links.txt
+devenv_cli.egg-info/entry_points.txt
+devenv_cli.egg-info/top_level.txt
