@@ -12,7 +12,7 @@ from .models import StringModel
 from .serrializers import StringSerializer
 
 
-class StringListView(ListAPIView):
+class StringListView(ListCreateAPIView):
     permissions_classes = (permissions.AllowAny)
     serializer_class = StringSerializer
     queryset = StringModel.objects.all()

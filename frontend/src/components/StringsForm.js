@@ -1,65 +1,239 @@
-
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const StringsForm = () => {
+  const [formData, setFormData] = useState({
+    string_type: "test",
+    string_length: 0,
+    winding_a: 0,
+    winding_b: 0,
+    winding_c: 0,
+    winding_d: 0,
+    winding_e: 0,
+    winding_f: 0,
+    eye_x: 0,
+    eye_y: 0,
+    material: "test",
+    string_amount: 0,
+    color: "test",
+    twist: "test",
+  });
+
+  const {
+    string_type,
+    string_length,
+    winding_a,
+    winding_b,
+    winding_c,
+    winding_d,
+    winding_e,
+    winding_f,
+    eye_x,
+    eye_y,
+    material,
+    string_amount,
+    color,
+    twist,
+  } = formData;
+  const [loading, setLoading] = useState(false);
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    setLoading(true);
+    axios
+      .post(
+        "http://localhost:8000/api/arrows/",
+        {
+          string_type,
+          string_length,
+          winding_a,
+          winding_b,
+          winding_c,
+          winding_d,
+          winding_e,
+          winding_f,
+          eye_x,
+          eye_y,
+          material,
+          string_amount,
+          color,
+          twist,
+        },
+        config
+      )
+      .then((res) => {
+        setLoading(false);
+        window.scrollTo(0, 0);
+        props.setString(res.data);
+      })
+      .catch((err) => {
+        setLoading(false);
+        window.scrollTo(0, 0);
+      });
+  };
+
   return (
-    <form>
+    <form onSubmit={(e) => onSubmit(e)}>
       <div class="form-row">
         <div class="form-group form-group col-md-6">
-          <input type="text" class="form-control" placeholder="Streng Type.." />
+          <input
+            type="text"
+            class="form-control"
+            name="string_type"
+            onChange={(e) => onChange(e)}
+            value={string_type}
+            placeholder="Streng Type.."
+          />
         </div>
         <div class="form-group form-group col-md-6">
           <input
             type="number"
             class="form-control"
             placeholder="Streng Længde.."
+            name="string_length"
+            onChange={(e) => onChange(e)}
+            value={string_length}
           />
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="number" class="form-control" placeholder="Øsken X" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Øsken X"
+            name="eye_x"
+            onChange={(e) => onChange(e)}
+            value={eye_x}
+          />
         </div>
         <div class="form-group col-md-6">
-          <input type="number" class="form-control" placeholder="Øsken Y" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Øsken Y"
+            name="eye_y"
+            onChange={(e) => onChange(e)}
+            value={eye_y}
+          />
         </div>
       </div>
       <div class="form-row">
         <div class="form-group form-group col-md-6">
-          <input type="text" class="form-control" placeholder="Material" />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Material"
+            name="material"
+            onChange={(e) => onChange(e)}
+            value={material}
+          />
         </div>
         <div class="form-group form-group col-md-6">
-          <input type="text" class="form-control" placeholder="Farve" />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Farve"
+            name="color"
+            onChange={(e) => onChange(e)}
+            value={color}
+          />
         </div>
       </div>
       <div class="form-row">
         <div class="form-group form-group col-md-6">
-          <input type="number" class="form-control" placeholder="Streng Antal" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Streng Antal"
+            name="string_amount"
+            onChange={(e) => onChange(e)}
+            value={string_amount}
+          />
         </div>
         <div class="form-group form-group col-md-6">
-          <input type="text" class="form-control" placeholder="Twist" />
+          <input
+            type="text"
+            class="form-control"
+            placeholder="twist"
+            name="twist"
+            onChange={(e) => onChange(e)}
+            value={twist}
+          />
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
-          <input type="number" class="form-control" placeholder="Bevikling A" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Bevikling A"
+            name="winding_a"
+            onChange={(e) => onChange(e)}
+            value={winding_a}
+          />
         </div>
         <div class="form-group col-md-4">
-          <input type="number" class="form-control" placeholder="Bevikling B" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Bevikling B"
+            name="winding_b"
+            onChange={(e) => onChange(e)}
+            value={winding_b}
+          />
         </div>
         <div class="form-group col-md-4">
-          <input type="number" class="form-control" placeholder="Bevikling C" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Bevikling C"
+            name="winding_c"
+            onChange={(e) => onChange(e)}
+            value={winding_c}
+          />
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
-          <input type="number" class="form-control" placeholder="Bevikling D" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Bevikling D"
+            name="winding_d"
+            onChange={(e) => onChange(e)}
+            value={winding_d}
+          />
         </div>
         <div class="form-group col-md-4">
-          <input type="number" class="form-control" placeholder="Bevikling E" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Bevikling E"
+            name="winding_e"
+            onChange={(e) => onChange(e)}
+            value={winding_e}
+          />
         </div>
         <div class="form-group col-md-4">
-          <input type="number" class="form-control" placeholder="Bevikling F" />
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Bevikling F"
+            name="winding_f"
+            onChange={(e) => onChange(e)}
+            value={winding_f}
+          />
         </div>
       </div>
       <button type="submit" class="btn btn-primary">
