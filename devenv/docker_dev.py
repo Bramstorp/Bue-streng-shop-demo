@@ -15,3 +15,5 @@ def docker_dev(self):
     elif self == "up":
         subprocess.run(
             ["sudo", "docker-compose", "-f", "docker-compose-dev.yml", "up"])
+    else:
+        click.echo("DET FADME IKKE EN DOCKER COMMAND")
