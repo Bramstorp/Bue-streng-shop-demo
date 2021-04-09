@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Loader from "react-loader-spinner";
 
 const StringsForm = () => {
   const [formData, setFormData] = useState({
-    string_type: "test",
-    string_length: 0,
-    winding_a: 0,
-    winding_b: 0,
-    winding_c: 0,
-    winding_d: 0,
-    winding_e: 0,
-    winding_f: 0,
-    eye_x: 0,
-    eye_y: 0,
-    material: "test",
-    string_amount: 0,
-    color: "test",
-    twist: "test",
+    string_type: "",
+    string_length: "",
+    winding_a: "",
+    winding_b: "",
+    winding_c: "",
+    winding_d: "",
+    winding_e: "",
+    winding_f: "",
+    eye_x: "",
+    eye_y: "",
+    material: "",
+    string_amount: "",
+    color: "",
+    twist: "",
   });
 
   const {
@@ -52,7 +53,7 @@ const StringsForm = () => {
     setLoading(true);
     axios
       .post(
-        "http://localhost:8000/api/arrows/",
+        "http://localhost:8000/api/strings/",
         {
           string_type,
           string_length,
@@ -163,7 +164,8 @@ const StringsForm = () => {
         </div>
         <div class="form-group form-group col-md-6">
           <input
-            type="text"
+            type="number"
+            step="0.1"
             class="form-control"
             placeholder="twist"
             name="twist"
@@ -236,9 +238,13 @@ const StringsForm = () => {
           />
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">
+      {loading ? (
+          <Loader type="Oval" color="#424242" height={50} width={50} />
+      ) : (
+        <button type="submit" class="btn btn-primary">
         Opret Streng
-      </button>
+        </button>
+      )}
     </form>
   );
 };
