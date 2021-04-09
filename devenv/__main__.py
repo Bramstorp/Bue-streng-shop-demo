@@ -1,26 +1,24 @@
 import sys
-from .docker import docker
+import click
+from .docker_prod import docker_prod
+from .docker_dev import docker_dev
 from .django import django
 from .postgressql import postgressql
 
-
-def main():
-    input_path = sys.argv[1]
-    if input_path == "docker":
-        env = sys.argv[2]
-        if env == "dev":
-            docker(env, sys.argv[3])
-        elif env == "prod":
-            docker(env, sys.argv[3])
-        else:
-            print("pls use dev or prod for env")
-    elif input_path == "django":
-        django(sys.argv[2])
-    elif input_path == "psql":
+@click.command()
+@click.argument('env')
+@click.argument('option', required=False)
+def main(env, option):
+    if env == "dev":
+        docker_dev(option)
+    elif env == "prod":
+        docker_prod(option)
+    elif env == "psql":
         postgressql()
+    elif env == "django":
+        django(option)
     else:
-        print("fejl 40 dummert")
-
+        print("fuck af")
 
 if __name__ == '__main__':
     main()
