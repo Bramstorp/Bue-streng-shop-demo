@@ -5,7 +5,7 @@ const Strings = () => {
   const [strings, setStrings] = useState([])
   return (
     <div className="pt-5">
-      <h5>Streng Opretter</h5>
+      <h1>Streng Opretter</h1>
       <StringsForm />
     </div>
   );
