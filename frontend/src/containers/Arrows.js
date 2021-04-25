@@ -1,9 +1,11 @@
 import React from "react";
+import ArrowsForm from "../components/ArrowsForm"
 
 const Arrows = () => {
   return (
-    <div>
-      <p>Arrows</p>
+    <div className="pt-5">
+      <h1>Arrows</h1>
+      <ArrowsForm />
     </div>
   );
 }

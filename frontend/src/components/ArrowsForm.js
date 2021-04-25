@@ -3,35 +3,32 @@ import axios from "axios";
 import Loader from "react-loader-spinner";
 import { Formik } from "formik";
 
-const StringsForm = () => {
+const ArrowsForm = () => {
   const [loading, setLoading] = useState(false);
 
   return (
     <div>
       <Formik
         initialValues={{
-          string_type: "",
-          string_length: "",
-          winding_a: "",
-          winding_b: "",
-          winding_c: "",
-          winding_d: "",
-          winding_e: "",
-          winding_f: "",
-          eye_x: "",
-          eye_y: "",
-          material: "",
-          string_amount: "",
-          color: "",
-          twist: "",
+          arrow_name: "",
+          arrow_length: "",
+          arrow_amount: "",
+          wrap: "",
+          wrap_color: "",
+          venis_type: "",
+          venis_length: "",
+          venis_color: "",
+          point_type: "",
+          point_weight: "",
+          insert_type: "",
+          nock_type: "",
+          nock_color: "",
+          nock_insert_type: "",
         }}
         onSubmit={(values, { setSubmitting }) => {
           setLoading(true);
           axios
-            .post(
-              "http://localhost:8000/api/strings/",
-              values
-            )
+            .post("http://localhost:8000/api/arrows/", values)
             .then((res) => {
               setLoading(false);
             })
@@ -41,34 +38,28 @@ const StringsForm = () => {
           setSubmitting(false);
         }}
       >
-        {({
-          values,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-        }) => (
+        {({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
           <form onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group form-group col-md-6">
                 <input
                   type="text"
                   className="form-control"
-                  name="string_type"
+                  name="arrow_name"
                   onChange={handleChange}
-                  value={values.string_type}
+                  value={values.arrow_name}
                   onBlur={handleBlur}
-                  placeholder="Streng Type.."
+                  placeholder="Pil Navn.."
                 />
               </div>
               <div className="form-group form-group col-md-6">
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Streng Længde.."
-                  name="string_length"
+                  placeholder="Pil Længde.."
+                  name="arrow_length"
                   onChange={handleChange}
-                  value={values.string_length}
+                  value={values.arrow_length}
                   onBlur={handleBlur}
                 />
               </div>
@@ -78,8 +69,8 @@ const StringsForm = () => {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Øsken X"
-                  name="eye_x"
+                  placeholder="Pil Mængede"
+                  name="arrow_amount"
                   onChange={handleChange}
                   value={values.eye_x}
                   onBlur={handleBlur}
@@ -89,10 +80,10 @@ const StringsForm = () => {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Øsken Y"
-                  name="eye_y"
+                  placeholder="Wrap"
+                  name="wrap"
                   onChange={handleChange}
-                  value={values.eye_y}
+                  value={values.wrap}
                   onBlur={handleBlur}
                 />
               </div>
@@ -102,10 +93,10 @@ const StringsForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Material"
-                  name="material"
+                  placeholder="wrap_color"
+                  name="wrap_color"
                   onChange={handleChange}
-                  value={values.material}
+                  value={values.wrap_color}
                   onBlur={handleBlur}
                 />
               </div>
@@ -113,10 +104,10 @@ const StringsForm = () => {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Farve"
-                  name="color"
+                  placeholder="venis_type"
+                  name="venis_type"
                   onChange={handleChange}
-                  value={values.color}
+                  value={values.venis_type}
                   onBlur={handleBlur}
                 />
               </div>
@@ -126,10 +117,10 @@ const StringsForm = () => {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Streng Antal"
-                  name="string_amount"
+                  placeholder="venis_length"
+                  name="venis_length"
                   onChange={handleChange}
-                  value={values.string_amount}
+                  value={values.venis_length}
                   onBlur={handleBlur}
                 />
               </div>
@@ -138,10 +129,10 @@ const StringsForm = () => {
                   type="number"
                   step="0.1"
                   className="form-control"
-                  placeholder="twist"
-                  name="twist"
+                  placeholder="venis_color"
+                  name="venis_color"
                   onChange={handleChange}
-                  value={values.twist}
+                  value={values.venis_color}
                   onBlur={handleBlur}
                 />
               </div>
@@ -151,10 +142,10 @@ const StringsForm = () => {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Bevikling A"
-                  name="winding_a"
+                  placeholder="point_type"
+                  name="point_type"
                   onChange={handleChange}
-                  value={values.winding_a}
+                  value={values.point_type}
                   onBlur={handleBlur}
                 />
               </div>
@@ -162,10 +153,10 @@ const StringsForm = () => {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Bevikling B"
-                  name="winding_b"
+                  placeholder="point_weight"
+                  name="point_weight"
                   onChange={handleChange}
-                  value={values.winding_b}
+                  value={values.point_weight}
                   onBlur={handleBlur}
                 />
               </div>
@@ -173,10 +164,10 @@ const StringsForm = () => {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Bevikling C"
-                  name="winding_c"
+                  placeholder="insert_type"
+                  name="insert_type"
                   onChange={handleChange}
-                  value={values.winding_c}
+                  value={values.insert_type}
                   onBlur={handleBlur}
                 />
               </div>
@@ -186,10 +177,10 @@ const StringsForm = () => {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Bevikling D"
-                  name="winding_d"
+                  placeholder="nock_type"
+                  name="nock_type"
                   onChange={handleChange}
-                  value={values.winding_d}
+                  value={values.nock_type}
                   onBlur={handleBlur}
                 />
               </div>
@@ -197,10 +188,10 @@ const StringsForm = () => {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Bevikling E"
-                  name="winding_e"
+                  placeholder="nock_color"
+                  name="nock_color"
                   onChange={handleChange}
-                  value={values.winding_e}
+                  value={values.nock_color}
                   onBlur={handleBlur}
                 />
               </div>
@@ -208,10 +199,10 @@ const StringsForm = () => {
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="Bevikling F"
-                  name="winding_f"
+                  placeholder="nock_insert_type"
+                  name="nock_insert_type"
                   onChange={handleChange}
-                  value={values.winding_f}
+                  value={values.nock_insert_type}
                   onBlur={handleBlur}
                 />
               </div>
@@ -234,4 +225,4 @@ const StringsForm = () => {
   );
 };
 
-export default StringsForm;
+export default ArrowsForm;
