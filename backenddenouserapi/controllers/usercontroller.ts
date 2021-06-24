@@ -1,4 +1,4 @@
-import { Router } from "./deps.ts";
+import { Router } from 'https://deno.land/x/opine@0.12.0/mod.ts';
 
 const users = new Router();
 

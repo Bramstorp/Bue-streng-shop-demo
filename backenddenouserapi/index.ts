@@ -1,13 +1,10 @@
-// @ts-nocheck
+import { opine, serveStatic } from 'https://deno.land/x/opine@0.12.0/mod.ts';
+import { renderFileToString } from 'https://deno.land/x/dejs@0.7.0/mod.ts';
+import { join, dirname } from 'https://deno.land/x/opine@0.12.0/deps.ts';
 
-import {
-  opine,
-  serveStatic,
-  renderFileToString,
-  join,
-  dirname,
-  ensureAuthenticated,
-} from "./deps.ts";
+import { ensureAuthenticated } from './middleware/authmiddleware.ts';
+import users from './controllers/usercontroller.ts';
+import auth from './controllers/authcontroller.ts';
 
 const app = opine();
 const __dirname = dirname(import.meta.url);
