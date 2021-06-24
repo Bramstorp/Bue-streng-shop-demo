@@ -5,6 +5,8 @@ from .database import Base
 
 
 class Arrows(Base):
+    __tablename__ = "Arrows"
+
     id = Column(Integer, primary_key=True, index=True)
     arrow_name = Column(String)
     arrow_length = Column(Integer)
@@ -23,6 +25,8 @@ class Arrows(Base):
 
 
 class Strings(Base):
+    __tablename__ = "Strings"
+
     id = Column(Integer, primary_key=True, index=True)
     string_type = Column(String)
     string_length = Column(Integer)
