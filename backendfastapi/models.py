@@ -5,13 +5,13 @@ from .database import Base
 
 
 class Arrows(Base):
-    __tablename__ = "Arrows"
+    __tablename__ = "arrows"
 
     id = Column(Integer, primary_key=True, index=True)
     arrow_name = Column(String)
     arrow_length = Column(Integer)
     arrow_amount = Column(Integer)
-    wrap = is_active = Column(Boolean, default=False)
+    wrap = Column(Boolean, default=False)
     wrap_color = Column(String)
     venis_type = Column(String)
     venis_length = Column(String)
