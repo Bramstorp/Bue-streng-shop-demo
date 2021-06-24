@@ -1,8 +1,8 @@
 version: "3.7"
 
 services:
-  backend:
-    container_name: backend_dev
+  backend_django:
+    container_name: backend_django_dev
     build: 
       context: ./backend
       dockerfile: Dockerfile.dev
@@ -15,6 +15,14 @@ services:
       - 8000:8000
     depends_on:
       - db
+  backend_django:
+    container_name: backend_fastapi_dev
+    build: 
+      context: .
+      dockerfile: backendfastapi/Dockerfile.dev
+    command: uvicorn backendfastapi.main:app --reload --port 80
+    ports:
+      - 8000:8000
   frontend:
     container_name: frontend_dev
     build:
