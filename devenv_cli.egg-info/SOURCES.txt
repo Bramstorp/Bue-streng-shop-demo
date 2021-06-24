@@ -3,7 +3,9 @@ setup.py
 devenv/__init__.py
 devenv/__main__.py
 devenv/django.py
-devenv/docker.py
+devenv/docker_container.py
+devenv/docker_dev.py
+devenv/docker_prod.py
 devenv/postgressql.py
 devenv_cli.egg-info/PKG-INFO
 devenv_cli.egg-info/SOURCES.txt
