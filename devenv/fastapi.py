@@ -1,5 +1,4 @@
 import subprocess
-import click
 
 
 def fastapi(self):

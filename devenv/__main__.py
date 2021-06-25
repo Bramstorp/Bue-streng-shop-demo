@@ -4,6 +4,7 @@ from .docker_dev import docker_dev
 from .django import django
 from .docker_container import docker_container
 from .postgressql import postgressql
+from .fastapi import fastapi
 
 
 @click.command()
@@ -19,6 +20,8 @@ def main(env, option, action):
         postgressql()
     elif env == "django":
         django(option)
+    elif env == "fastapi":
+        fastapi(option)
     elif env == "docker":
         docker_container(option, action)
     else:

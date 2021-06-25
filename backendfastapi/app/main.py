@@ -53,7 +53,7 @@ async def shutdown():
 
 @app.get("/")
 async def root():
-    return "Test"
+    return "tester"
 
 
 @app.get("/notes/", response_model=List[Note])
