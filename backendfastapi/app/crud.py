@@ -5,7 +5,7 @@ from . import models, schemas
 
 
 def create_arrow(db: Session, arrow: schemas.CreateArrow):
-    arrow_item = models.Arrows(arrow_name=arrow.arrow_name)
+    arrow_item = models.Arrows(**arrow.dict())
     db.add(arrow_item)
     db.commit()
     db.refresh(arrow_item)

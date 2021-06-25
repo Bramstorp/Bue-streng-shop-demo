@@ -1,4 +1,5 @@
 from sqlalchemy import Boolean, Column, Integer, String
+from sqlalchemy.sql.expression import true
 from sqlalchemy.sql.sqltypes import Float
 
 from .database import Base

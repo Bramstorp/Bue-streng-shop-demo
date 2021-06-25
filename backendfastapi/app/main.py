@@ -24,8 +24,7 @@ def get_db():
 
 @app.get("/arrows/", response_model=List[schemas.Arrows])
 def read_arrows(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    arrows = crud.get_arrows(db, skip=skip, limit=limit)
-    return arrows
+    return crud.get_arrows(db, skip=skip, limit=limit)
 
 
 @app.post("/arrows/", response_model=schemas.Arrows)
