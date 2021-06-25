@@ -1,6 +1,7 @@
 import click
 import subprocess
 
+
 def docker_container(command, action):
     if action == "frontend":
         subprocess.run(["sudo", "docker", command, "frontend_dev"])
@@ -10,4 +11,3 @@ def docker_container(command, action):
         subprocess.run(["sudo", "docker", command, "frontend_dev"])
     else:
         click.echo("DET FADME IKKE EN DOCKER CONTAINER")
-

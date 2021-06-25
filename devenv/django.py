@@ -1,6 +1,7 @@
 import subprocess
 import click
 
+
 def django(self):
     if self == "logs":
         subprocess.run(["sudo", "docker", "logs", "backend_dev", "--follow"])

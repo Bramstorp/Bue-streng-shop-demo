@@ -1,6 +1,6 @@
-import sys
 import click
 import subprocess
+
 
 def docker_prod(self):
     if self == "start":

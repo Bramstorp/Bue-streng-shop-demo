@@ -1,10 +1,10 @@
-import sys
 import click
 from .docker_prod import docker_prod
 from .docker_dev import docker_dev
 from .django import django
 from .docker_container import docker_container
 from .postgressql import postgressql
+
 
 @click.command()
 @click.argument('env')
@@ -23,6 +23,7 @@ def main(env, option, action):
         docker_container(option, action)
     else:
         print("fuck af")
+
 
 if __name__ == '__main__':
     main()
