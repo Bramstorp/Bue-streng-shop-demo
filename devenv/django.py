@@ -4,9 +4,9 @@ import click
 
 def django(self):
     if self == "logs":
-        subprocess.run(["sudo", "docker", "logs", "backend_dev", "--follow"])
+        subprocess.run(["sudo", "docker", "logs", "backend_django_dev", "--follow"])
     elif self == "restart":
-        subprocess.run(["sudo", "docker", "restart", "backend_dev"])
+        subprocess.run(["sudo", "docker", "restart", "backend_django_dev"])
     elif self:
         subprocess.run(
             ["sudo", "docker-compose", "-f", "docker-compose-dev.yml", "exec", "backend", "python", "manage.py", self])
