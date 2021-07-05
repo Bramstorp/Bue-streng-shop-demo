@@ -1,17 +1,21 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { Home } from "./Main"
+import { StringRoutes } from "./StringPages/routes/StringRoutes";
+import { ArrowRoutes } from "./ArrowPages/routes/ArrowRoutes";
+
+
+import { Home } from "./Main";
 
 function App() {
   return (
     <BrowserRouter basename={"/"}>
-    <Switch>
-      <React.Suspense fallback={<></>}>
+      <Switch>
         <Route path="/" exact={true} component={Home} />
-      </React.Suspense>
-    </Switch>
-  </BrowserRouter>
+        <Route path="/strings" exact={true} component={StringRoutes} />
+        <Route path="/arrows" exact={true} component={ArrowRoutes} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
