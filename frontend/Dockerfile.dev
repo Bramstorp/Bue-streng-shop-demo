@@ -1,13 +1,8 @@
-FROM node:13.12.0-alpine
+FROM node:14-alpine
 
 WORKDIR /app/frontend
 
-RUN npm install --silent
-RUN npm install react-scripts -g --silent
-
-ENV PATH /app/node_modules/.bin:$PATH
-
-COPY ./package.json .
-COPY ./package-lock.json .
+COPY yarn.lock .
+COPY package.json .
 
 COPY . .
