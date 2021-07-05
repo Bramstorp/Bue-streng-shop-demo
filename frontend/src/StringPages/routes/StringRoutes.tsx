@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useRouteMatch } from "react-router-dom";
 
 import { StringPage } from "../modules/StringPage";
 
 export const StringRoutes: FunctionComponent = () => {
+  let { url } = useRouteMatch();
+
   return (
     <Switch>
-      <Route path="/string" exact={true} component={StringPage} />
+      <Route path={`${url}`} exact={true} component={StringPage} />
     </Switch>
   );
 };
