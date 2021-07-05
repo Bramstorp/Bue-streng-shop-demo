@@ -5,7 +5,7 @@ import { StringRoutes } from "./StringPages/StringRoutes";
 import { ArrowRoutes } from "./ArrowPages/ArrowRoutes";
 
 import { Home } from "./Main";
-import { NotFound } from "./NotFound"
+import { NotFound } from "./NotFound";
 
 function App() {
   return (
