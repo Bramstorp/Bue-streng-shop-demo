@@ -5,7 +5,7 @@ import { Home } from "./Main"
 
 function App() {
   return (
-    <BrowserRouter basename={"/customer-center/"}>
+    <BrowserRouter basename={"/"}>
     <Switch>
       <React.Suspense fallback={<></>}>
         <Route path="/" exact={true} component={Home} />
