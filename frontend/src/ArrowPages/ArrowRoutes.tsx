@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 
-import { ArrowPage } from "../modules/ArrowPage";
+import { ArrowPage } from "./modules/ArrowPage";
 
 export const ArrowRoutes: FunctionComponent = () => {
   let { url } = useRouteMatch();

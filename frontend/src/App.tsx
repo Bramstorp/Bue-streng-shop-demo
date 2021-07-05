@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { StringRoutes } from "./StringPages/routes/StringRoutes";
-import { ArrowRoutes } from "./ArrowPages/routes/ArrowRoutes";
+import { StringRoutes } from "./StringPages/StringRoutes";
+import { ArrowRoutes } from "./ArrowPages/ArrowRoutes";
 
 
 import { Home } from "./Main";
