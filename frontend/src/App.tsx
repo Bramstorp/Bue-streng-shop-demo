@@ -4,18 +4,21 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { StringRoutes } from "./StringPages/StringRoutes";
 import { ArrowRoutes } from "./ArrowPages/ArrowRoutes";
 
-import { Home } from "./Main";
+import { Homepage } from "./HomePage/HomePage";
 import { NotFound } from "./NotFound";
+import { Layout } from "./Layout/Layout";
 
 function App() {
   return (
     <BrowserRouter basename={"/"}>
-      <Switch>
-        <Route path="/" exact={true} component={Home} />
-        <Route path="/strings" exact={true} component={StringRoutes} />
-        <Route path="/arrows" exact={true} component={ArrowRoutes} />
-        <Route component={NotFound} />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path="/" exact={true} component={Homepage} />
+          <Route path="/strings" exact={true} component={StringRoutes} />
+          <Route path="/arrows" exact={true} component={ArrowRoutes} />
+          <Route component={NotFound} />
+        </Switch>
+      </Layout>
     </BrowserRouter>
   );
 }
