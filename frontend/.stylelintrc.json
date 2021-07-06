@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-css-modules",
+    "stylelint-config-sass-guidelines",
+    "stylelint-prettier/recommended"
+  ],
+  "plugins": ["stylelint-prettier"],
+  "rules": {
+    "max-nesting-depth": 3
+  }
+}
