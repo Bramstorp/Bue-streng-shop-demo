@@ -5,6 +5,7 @@ from .django import django
 from .docker_container import docker_container
 from .postgressql import postgressql
 from .fastapi import fastapi
+from .yarn import yarn
 
 
 @click.command()
@@ -24,6 +25,8 @@ def main(env, option, action):
         fastapi(option)
     elif env == "docker":
         docker_container(option, action)
+    elif env == "yarn":
+        yarn(option, action)
     else:
         print("fuck af")
 
