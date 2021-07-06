@@ -1,0 +1,6 @@
+Setup jest testing
+Setup eslint
+Setup Stylelint
+Setup Prettier
+Setup Babel
+Setup Webpack
