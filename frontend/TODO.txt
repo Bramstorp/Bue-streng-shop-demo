@@ -1,4 +1,3 @@
 Setup jest testing
-Setup Stylelint
 Setup Babel
 Setup Webpack
