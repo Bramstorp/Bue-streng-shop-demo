@@ -1,3 +1,4 @@
 Setup jest testing
 Setup Babel
 Setup Webpack
+Setup Redux
